@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Finding modification</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+<style>
+     #map {
+        height: 550px;
+         width: 100%;
+      }
+    </style>
+</head>
+
+<body class="animsition" onload="CARGARCATEGORIAS()">
+    <div class="page-wrapper">
+     <!-- HEADER MOBILE-->
+          <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                           PEGASUS
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                 <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Protected areas</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="nuevazona.html">New protected area</a>
+                                </li>
+                                <li>
+                                    <a href="Listazonas.html">List of protected areas</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Public map</a>
+                        </li>
+                  <li>
+                            <a href="Log.html">
+                            <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+       <!-- END HEADER MOBILE-->
+
+       <!-- MENU SIDEBAR-->
+       <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                PEGASUS
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                       
+                      
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                      <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                 <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Protected areas</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="nuevazona.html">New protected area</a>
+                                </li>
+                                <li>
+                                    <a href="Listazonas.html">List of protected areas</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Public map</a>
+                        </li>
+                  <li>
+                            <a href="Log.html">
+                                    <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                     </ul>
+                </nav>
+            </div>
+        </aside>
+         <!-- END MENU SIDEBAR-->
+  <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+             <!-- HEADER DESKTOP-->
+          <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                           
+                            <div class="header-button">
+                             
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="" alt="" id="imgperfil" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" id="nombredeusuario" ></a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="" alt="" id="imgperfil2"/>
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#"></a>
+                                                    </h5>
+                                                    <span class="email" id="emailuser"></span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                               
+                                                <div class="account-dropdown__item">
+                                                    <a href="configuracion.html">
+                                                        <i class="zmdi zmdi-settings"></i>Configuration</a>
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#" onclick="salirdelsistema()">
+                                                    <i class="zmdi zmdi-power"></i>Log Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+              <!-- END HEADER DESKTOP-->
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                       <div class="row">
+                       
+                            <div class="col-lg-6">
+                                        <div class="card" id="cajausuario">
+                                    <div class="card-header">
+Finding to update</div>
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">
+Fill in all the data</h3>
+                                        </div>
+                                        <hr>
+                                         <H4>Basic Data</H4>
+                     
+                                            <div class="form-group">
+                                                
+                                                   <label for="Numero" class=" form-control-label">Number</label>
+                                                   <input type="text" id="Numero" class="form-control" placeholder="Number">
+                                            </div>
+                                           
+                                           
+                                              <div class="form-group">
+                                            <label for="Nameofconflict" class=" form-control-label">Name of conflict</label>
+                                          
+   <input type="text" id="Nameofconflict" class="form-control" placeholder="Name of conflict">
+                        
+                                        </div>
+                                        
+                                        
+                                              <div class="form-group">
+                                            <label for="Country" class=" form-control-label">Country</label>
+                                          
+
+                          <input type="text" id="Country" class="form-control" placeholder="Country">
+                         
+                                        </div>
+                                          <div class="form-group">
+                                            <label for="date" class=" form-control-label">Date</label>
+                                          
+
+                          <input type="date" id="date" class="form-control" placeholder="Date">
+                         
+                                        </div>
+                                              <div class="form-group">
+                                            <label for="StateorProvince" class=" form-control-label">State or Province</label>
+                                          
+
+                      <input type="text" id="StateorProvince" class="form-control" placeholder="State or Province">
+                        
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            <label for="affectedpopulation" class=" form-control-label">Type of affected population</label>
+                                          
+
+                        
+                                            
+                                             <input type="text" id="affectedpopulation"  class="form-control" placeholder="Type of affected population">
+                                            
+                                        </div>
+                                        
+                                        
+                                          <H4>Source of Conflict</H4>
+                                         <div class="form-group">
+                                            <label for="Activitydrugtrafficking" class=" form-control-label">Activity affected or activity used for/related to the drug trafficking (Type of conflict 1st level) 
+</label>
+                                          
+
+                        
+                                            
+                                            
+                                              <input type="text" id="Activitydrugtrafficking" class="form-control" placeholder="Activity affected or activity used for/related to the drug trafficking (Type of conflict 1st level) ">
+                                             
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                            <label for="SpecificCommodity" class=" form-control-label">Specific Commodity* </label>
+                                          
+
+                        
+                                            
+                                            
+                                             
+                                                <input type="text" id="SpecificCommodity" class="form-control" placeholder="Specific Commodity* ">
+                                             
+                                        </div>
+                                        
+                                      
+                                        
+                                        <div class="form-group">
+                                            <label for="Conflictdetailsandactors" class=" form-control-label">Conflict details and actors </label>
+
+                                           
+                                      <textarea  rows="9"  class="form-control" id="Conflictdetailsandactors" placeholder="Conflict details and actors " ></textarea>
+                              
+                                        </div>
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label for="RelevantgovernmentActors" class=" form-control-label">Relevant government 
+Actors 
+</label>
+
+                                           
+                              
+                              
+                                             
+                                              <input type="text" id="RelevantgovernmentActors" class="form-control" placeholder="Relevant government 
+Actors ">
+                             
+                                        </div>
+                                           <div class="form-group">
+                                            <label for="Relevantprivatesectoractors" class=" form-control-label">Relevant private sector actors </label>
+
+                                           
+                              
+                              
+                                             
+                                            
+                                  <input type="text" id="Relevantprivatesectoractors" class="form-control" placeholder="Relevant private sector actors">
+                                        </div>
+                                    
+                                        
+                                          
+                                           <div class="form-group">
+                                            <label for="RelevantEJOsactors" class=" form-control-label">Relevant EJOs/actors</label>
+
+                                               <input type="text" id="RelevantEJOsactors" class="form-control" placeholder="Relevant EJOs/actors">
+   
+                                        </div>
+                                        
+                                          <div class="form-group">
+                                            <label for="Supporters" class=" form-control-label">Supporters </label>
+
+                                            
+   <input type="text" id="Supporters" class="form-control" placeholder="Supporters ">
+                                        
+                                        </div>
+                                              <H4>The Conflict and Mobilization</H4>
+                                         <div class="form-group">
+                                            <label for="Intensityoftheconflict" class=" form-control-label">Intensity of the conflict </label>
+
+                                            
+   <input type="text" id="Intensityoftheconflict" class="form-control" placeholder="Intensity of the conflict ">
+                                        
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="Startoftheconflict" class=" form-control-label">Start of the conflict</label>
+
+                                            
+   <input type="text" id="Startoftheconflict" class="form-control" placeholder="Start of the conflict">
+                                        
+                                        </div>
+                                           
+                                      
+                                        
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label for="Groupsaffected" class=" form-control-label">Groups affected </label>
+
+                                            
+   
+                                         <input type="text" id="Groupsaffected" class="form-control" placeholder="Groups affected">
+                                        </div>
+                                        
+                                    
+                                        
+                                         <div class="form-group">
+                                            <label for="Formsofmobilization" class=" form-control-label">Forms of mobilization</label>
+
+                                            
+   
+                                             
+                                              <input type="text" id="Formsofmobilization" class="form-control" placeholder="Forms of mobilization">
+                           
+                                        
+                                             
+                                        </div>
+                                        
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label for="Environmentalimpacts" class=" form-control-label">Environmental impacts</label>
+
+                                            
+   
+                                             
+                                              <input type="text" id="Environmentalimpacts" class="form-control" placeholder="Environmental impacts">
+                           
+                                        
+                                             
+                                        </div>
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label for="Healthimpacts" class=" form-control-label">Health impacts</label>
+
+                                            
+   
+                                             
+                                              <input type="text" id="Healthimpacts" class="form-control" placeholder="Health impacts">
+                           
+                                        
+                                             
+                                        </div>
+                                        
+                                        
+                                         <div class="form-group">
+                                            <label for="Socioeconomicimpacts" class=" form-control-label">Socio-economic impacts</label>
+
+                                            
+   
+                                             
+                                             
+                                         <input type="text" id="Socioeconomicimpacts" class="form-control" placeholder="Socio-economic impacts">
+                                         
+                                             
+                                        </div>
+                                          <H4>Drug Trade Link with the Conflict</H4>
+                                       <div class="form-group">
+                                            <label for="StatusofConfirmation" class=" form-control-label">Status of Confirmation</label>
+
+                                            
+   
+                                             
+                                             
+                                         
+                                              <input type="text" id="StatusofConfirmation" class="form-control" placeholder="Status of Confirmation">
+                    
+                                        </div>
+                                        
+                                        
+                                             <div class="form-group">
+                                            <label for="ModeofConnection" class=" form-control-label">Mode of Connection</label>
+
+                                            
+   
+                                             
+                                             
+                                         
+                                           <input type="text" id="ModeofConnection" class="form-control" placeholder="Mode of Connection">
+                                        </div>
+                                       
+                                       
+                                        
+                                        
+                                       
+                                          
+                                        
+                                         
+                                         <div class="form-group">
+                                                
+                                                   <label for="Traffickinggroups" class=" form-control-label">Trafficking groups </label>
+                                                 
+                                             
+                                             
+                                        <input type="text" id="Traffickinggroups" class="form-control" placeholder="Trafficking groups">
+                          
+                                            </div>
+                                        
+                                            
+                                         <div class="form-group">
+                                                
+                                                   <label for="Typeofroute" class=" form-control-label">Type of route </label>
+                                                 
+                                             
+                                             
+                                        <input type="text" id="Typeofroute" class="form-control" placeholder="Type of route ">
+                          
+                                            </div>
+                                                   
+                                         <div class="form-group">
+                                                
+                                                   <label for="HotSpotrelated" class=" form-control-label">HotSpot related </label>
+                                                 
+                                             
+                                             
+                                        <input type="text" id="HotSpotrelated" class="form-control" placeholder="HotSpot related">
+                          
+                                            </div>
+                                              
+                                              
+                                                <div class="form-group">
+                                            <label for="Sources" class=" form-control-label">Sources 
+ </label>
+
+                                           
+                                      <textarea  rows="9"  class="form-control" id="Sources" placeholder="Sources" ></textarea>
+                              
+                                        </div>
+                                                <div class="form-group">
+                                            <label for="Quotestoreinforce" class=" form-control-label">Quotes or another comments to reinforce  
+ </label>
+
+                                           
+                                      <textarea  rows="9"  class="form-control" id="Quotestoreinforce" placeholder="Quotes or another comments to reinforce " ></textarea>
+                              
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="Lossofvalueinecosystemservicesbycountry" class=" form-control-label">Loss of value in ecosystem services by country
+ </label>
+
+                                           
+                                      <textarea  rows="9"  class="form-control" id="Lossofvalueinecosystemservicesbycountry" placeholder="Loss of value in ecosystem services by country" ></textarea>
+                              
+                                        </div>
+                                          <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="estadosistema" class=" form-control-label">
+State in the system</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="estadosistema" class="form-control">
+                                                        <option value="0">Select</option>
+                                                        <option value="Inactive">
+Inactive</option>
+                        <option value="Active">Active</option>
+                    
+                    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                          <div class="form-group">
+                                                
+                                                   <label for="palabrasclave" class=" form-control-label">Keywords</label>
+                                                 
+                                             
+                                             <input type="text" id="palabrasclave" class="form-control" placeholder="Keywords">
+                                        
+                                            </div>
+                                            <div>
+                                                <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="modificahallazgo()">
+                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                    <span id="payment-button-amount">Update data</span>
+                                               
+                                                </button>
+                                                
+                                              
+                                                
+                                            </div>
+                                
+                                    </div>
+                                </div>
+                         
+                            </div>
+                            	
+                            
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+       <script src="js/blockUI.js"></script>
+<script type="text/javascript">
+    
+ if (JSON.parse(localStorage.getItem("usuariologueado")) == null) {
+            alert("You are not authorized to enter yet");
+            location.href = "/login.html";
+
+        }
+    else
+        {
+            if  (JSON.parse(localStorage.getItem("usuariologueado"))[0].tipousuario =="Visitor")
+              {
+                  alert("You do not have permission to enter this option");
+                  window.history.back();
+              }
+            document.getElementById("nombredeusuario").innerHTML = JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+             document.getElementById("imgperfil").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+                     document.getElementById("imgperfil2").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+            
+            if(localStorage.getItem("conflictoamodificar") != null)
+                {
+                    
+                      for (var ele in JSON.parse(localStorage.getItem("hallazgosadm")))
+            {
+        if(JSON.parse(localStorage.getItem("hallazgosadm"))[ele]._id==localStorage.getItem("conflictoamodificar"))
+            {
+                
+     document.getElementById("date").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].fecha;           
+document.getElementById("palabrasclave").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].palabrasclave;
+document.getElementById("estadosistema").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].estadoensistema;
+ document.getElementById("Numero").value= JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Numero;
+   document.getElementById("Nameofconflict").value= JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Nameofconflict;
+    document.getElementById("Country").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Country;
+    document.getElementById("StateorProvince").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].StateorProvince;
+    document.getElementById("affectedpopulation").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].affectedpopulation;
+   document.getElementById("Activitydrugtrafficking").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Activitydrugtrafficking;
+    document.getElementById("SpecificCommodity").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].SpecificCommodity;
+document.getElementById("Conflictdetailsandactors").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Conflictdetailsandactors;
+
+    document.getElementById("Relevantprivatesectoractors").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Relevantprivatesectoractors;
+   document.getElementById("RelevantEJOsactors").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].RelevantEJOsactors;
+    document.getElementById("Supporters").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Supporters;
+    document.getElementById("Intensityoftheconflict").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Intensityoftheconflict;
+document.getElementById("Startoftheconflict").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Startoftheconflict;
+document.getElementById("Groupsaffected").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Groupsaffected;
+    document.getElementById("Formsofmobilization").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Formsofmobilization;
+    document.getElementById("Environmentalimpacts").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Environmentalimpacts;
+    document.getElementById("Healthimpacts").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Healthimpacts;
+  document.getElementById("Socioeconomicimpacts").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Socioeconomicimpacts;
+    document.getElementById("StatusofConfirmation").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].StatusofConfirmation;
+ document.getElementById("ModeofConnection").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].ModeofConnection;
+document.getElementById("Traffickinggroups").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Traffickinggroups;
+document.getElementById("Typeofroute").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Typeofroute;
+document.getElementById("HotSpotrelated").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].HotSpotrelated;
+document.getElementById("Sources").value=JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Sources; 
+document.getElementById("Quotestoreinforce").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Quotestoreinforce;
+ document.getElementById("RelevantgovernmentActors").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].RelevantgovernmentActors;
+   document.getElementById("Lossofvalueinecosystemservicesbycountry").value = JSON.parse(localStorage.getItem("hallazgosadm"))[ele].Lossofvalueinecosystemservicesbycountry;
+ 
+                
+
+                
+                
+                
+                
+                break;
+            }}
+                    
+                    
+                  
+                }
+            else
+                {
+                    location.href= "Listahallazgos.html";
+                }
+            
+            
+        }
+    function guardarcategoria()
+    {
+        
+         if (($('#nombre').val() != '') && ($('#descripcion').val() != '')) {
+                        $('#cajausuario').block({
+                            message: '<h4>Charging...</h4><img src="/imgs/carga.gif" style="width:25%;height:25%;"/>',
+
+
+                        });
+                  
+               
+              var persona = new Object();
+                 
+                        persona.nombre = $('#nombre').val();
+                        persona.descripcion = $('#descripcion').val();
+                      
+                        $.ajax({
+                            //url: 'http://bodas.sistemcr.com/api/api/TRIVIA',
+                            url: 'api/categoria',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: persona,
+                            success: function (data, textStatus, xhr) {
+                              
+
+
+
+
+
+
+alert("Categoria Guardada correctamente");
+                                
+
+      $('#cajausuario').unblock();
+
+
+
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                alert(xhr);
+                            }
+                        });
+             }
+                    else {
+                        alert('Rellene todos los campos');
+                    }
+        
+    }
+    var poligonio = "";
+    var ejex = "";
+    var ejey="";
+    
+    
+    
+          function CARGARCATEGORIAS()
+{
+    var persona = new Object();
+  
+    $.ajax({
+        url: 'api/categoriatodos',
+        // url: 'http://192.168.1.135//api/Listado',
+        type: 'POST',
+        dataType: 'json',
+        data: persona,
+        success: function (data, textStatus, xhr) {
+           
+              for (var ele in data) {
+                  
+                  var x = document.getElementById("categoria");
+                        var option = document.createElement("option");
+                        option.text =   data[ele].nombre ;
+                        option.value =  data[ele].nombre ;
+                        option.id =  data[ele].nombre ;
+                    //   option.id=
+                        x.add(option);
+                  
+              }
+             
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert(xhr);
+        }
+    });
+
+} 
+    
+            var vectordeimegenesenbase64 = [];
+      $("#file").change(function(){
+       readURL(this);
+ });
+    
+        function readURL(input) {
+
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+
+                            var objeto = new Object();
+                           
+                            objeto.imgData = e.target.result;
+
+                            vectordeimegenesenbase64.push(objeto);
+
+                            imagesdesdevector();
+                          
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+   
+    
+    
+        function imagesdesdevector() {
+                    var contador = 0;
+var fila =0
+                 document.getElementById("fila0").innerHTML ="";
+               document.getElementById("fila1").innerHTML ="";
+               document.getElementById("fila2").innerHTML ="";
+               document.getElementById("fila3").innerHTML ="";
+                    for (var ele in vectordeimegenesenbase64) {
+                        if (contador == 8) {
+                            fila = fila + 1;
+                          
+                        }
+                        contador = contador + 1;
+                      
+                                document.getElementById("fila"+ fila).innerHTML += '<td><img id=' + vectordeimegenesenbase64[ele].nombre + ' src=' + vectordeimegenesenbase64[ele].imgData + ' style ="width: 100px; height: 100px; border-radius:10px;"/></td>';
+
+                 
+                    }
+            
+                }
+     
+    
+    
+    
+      function modificahallazgo()
+         {
+
+
+    var persona = new Object();
+  persona.id=localStorage.getItem("conflictoamodificar");
+
+   
+                
+                 var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+var today = dd + '/' + mm + '/' + yyyy;
+persona.vectordepuntosdezona=poligonio;
+   
+   
+    persona.usuario= JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+   persona.fecha= document.getElementById("date").value;
+   persona.palabrasclave=document.getElementById("palabrasclave").value;
+    persona.estadoensistema=document.getElementById("estadosistema").value;       
+ persona.Numero=$('#Numero').val();
+ persona.Nameofconflict=$('#Nameofconflict').val();
+ persona.Country=$('#Country').val();
+ persona.StateorProvince=$('#StateorProvince').val();
+ persona.affectedpopulation=$('#affectedpopulation').val();
+ persona.Activitydrugtrafficking=$('#Activitydrugtrafficking').val();
+ persona.SpecificCommodity=$('#SpecificCommodity').val();
+ persona.Conflictdetailsandactors=$('#Conflictdetailsandactors').val();
+ persona.Relevantgovernment=$('#Relevantgovernment').val();
+ persona.Actors=$('#Actors').val();
+ persona.Relevantprivatesectoractors=$('#Relevantprivatesectoractors').val();
+ persona.RelevantEJOsactors=$('#RelevantEJOsactors').val();
+ persona.Supporters=$('#Supporters').val();
+ persona.Intensityoftheconflict=$('#Intensityoftheconflict').val();
+ persona.Startoftheconflict=$('#Startoftheconflict').val();
+ persona.Groupsaffected=$('#Groupsaffected').val();
+ persona.Formsofmobilization=$('#Formsofmobilization').val();
+ persona.Environmentalimpacts=$('#Environmentalimpacts').val();
+ persona.Healthimpacts=$('#Healthimpacts').val();
+ persona.Socioeconomicimpacts=$('#Socioeconomicimpacts').val();
+ persona.StatusofConfirmation=$('#StatusofConfirmation').val();
+ persona.ModeofConnection=$('#ModeofConnection').val();
+ persona.Traffickinggroups=$('#Traffickinggroups').val(); 
+ persona.Typeofroute=$('#Typeofroute').val();
+ persona.HotSpotrelated=$('#HotSpotrelated').val();
+ persona.Sources=$('#Sources').val();
+ persona.Quotestoreinforce=$('#Quotestoreinforce').val();
+             persona.Lossofvalueinecosystemservicesbycountry= $('#Lossofvalueinecosystemservicesbycountry').val();
+                
+  persona.RelevantgovernmentActors=$('#RelevantgovernmentActors').val();
+                 persona.autuser=JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+                
+                
+                 $('#cajausuario').block({
+                            message: '<h4>Charging...</h4><img src="/imgs/carga.gif" style="width:25%;height:25%;"/>',
+
+
+                        });
+                
+
+      $.ajax({
+        url: 'api/modificaconflicto',
+        // url: 'http://192.168.1.135//api/Listado',
+        type: 'POST',
+        dataType: 'json',
+        data: persona,
+        success: function (data, textStatus, xhr) {
+              
+        
+               $('#cajausuario').unblock();
+             alert("Find updated");
+            location.href= "Listahallazgos.html";
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert(xhr);
+        }
+    });
+
+}
+    
+     function salirdelsistema()
+    {
+        localStorage.setItem("usuariologueado",null);
+      //  localstorage.setItem("usuariologueado",null);
+        location.href = "login.html";
+    }
+    </script>
+    
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXvodJ1BTbGIVjYsnBe7cEXVUPgnM5Nus&libraries=drawing&callback=initMap" async defer></script>
+</body>
+
+</html>
+<!-- end document-->

@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Maps</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+<style>
+     #map {
+        height: 500px;
+         width: 100%;
+      }
+    .submapa
+    {
+           height: 250px;
+         width: 100%;
+    }
+     .mapadetalle
+    {
+           height: 500px;
+         width: 100%;
+    }
+    </style>
+</head>
+
+<body class="animsition" onload="cargatodaspropiedades()">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                       PEGASUS
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid" id='menumovil'>
+                    <ul class="navbar-mobile__list list-unstyled">
+                           <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-filter"></i>
+                                Filtros</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="#">Por fechas</a>
+                                    
+                                           <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                               
+                                      <div class="form-group">
+                                            <label for="fechainicio" class=" form-control-label">Fecha mayor a</label>
+
+                                            <input type="date" id="fechaunomobile" class="form-control" placeholder="Fecha de inicio">
+                                        </div>
+                                        
+                                          <div class="form-group">
+                                            <label for="fechafinalizacion" class=" form-control-label">Fecha menor a</label>
+
+                                              <input type="date" id="fechadosmobile" class="form-control" placeholder="Fecha de finalización">
+                             
+                                        </div>
+                                                   
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarporfecha()">
+                                    
+                                                    <span id="payment-button-amount">Filtrar</span>
+                                               
+                                                </button>
+                                                   </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Por categoria</a>
+                                       <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                      <div class="row form-group">
+                                               
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="categoriamobile" class="form-control">
+                                                        <option value="0">Seleccione</option>
+                                                       
+                    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                           </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Por direccion</a>
+                                     <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                      <div class="form-group">
+                                                
+                                                   <label for="palabrasclavemobile" class=" form-control-label">Ciudad, pais o señas</label>
+                                                 
+                                             
+                                             <input type="text" id="direccionmobile" class="form-control" placeholder="direcicon">
+                                        
+                                            </div>
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarpordireccion()">
+                                     
+                                                    <span id="payment-button-amount">Filtrar</span>
+                                               
+                                                </button>
+                                         </li></ul>
+                                </li>
+                                 <li>
+                                    <a href="#">Por palabras clave</a>
+                                         <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                       <div class="form-group">
+                                                
+                                                   <label for="palabrasclavemobile" class=" form-control-label">Palabras clave</label>
+                                                 
+                                             
+                                             <input type="text" id="palabrasclavemobile" class="form-control" placeholder="Palabras clave">
+                                        
+                                            </div>
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarporpalabras()">
+                             
+                                                    <span id="payment-button-amount">Filtrar</span>
+                                               
+                                                </button>
+                                             </li>
+                                     </ul>
+                                </li>
+                            </ul>
+                        </li>
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                      <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                 <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Protected areas</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="nuevazona.html">New protected area</a>
+                                </li>
+                                <li>
+                                    <a href="Listazonas.html">List of protected areas</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                  <li>
+                            <a href="Log.html">
+                                   <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                PEGASUS
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1" id="menulateral">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-filter"></i>
+                              Filter</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li id="opcionquitarfiltros" style="visibility:hidden;">
+                                     <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="quitarfiltros()">
+                                            
+                                                    <span id="payment-button-amount">Quit filters</span>
+                                </li>
+                                <li>
+                                    <a href="#">By date of entering</a>
+                                    
+                                           <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                               
+                                      <div class="form-group">
+                                            <label for="fechainicio" class=" form-control-label">Date greater than</label>
+
+                                            <input type="date" id="fechauno" class="form-control" placeholder="Fecha de inicio">
+                                        </div>
+                                        
+                                          <div class="form-group">
+                                            <label for="fechafinalizacion" class=" form-control-label">Date less than</label>
+
+                                              <input type="date" id="fechados" class="form-control" placeholder="Fecha de finalización">
+                             
+                                        </div>
+                                                   
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarporfecha()">
+                                              
+                                                       
+                                                    <span id="payment-button-amount">Filter</span>
+                                               
+                                                </button>
+                                                   </li>
+                                    </ul>
+                                </li>
+                                
+                                <li>
+                                    <a href="#">Por name of conflict</a>
+                                     <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                      <div class="form-group">
+                                                
+                                                   <label for="palabrasclave" class=" form-control-label">Name of conflict</label>
+                                                 
+                                             
+                                             <input type="text" id="direccion" class="form-control" placeholder="Name of conflict">
+                                        
+                                            </div>
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarpordireccion()">
+                                             
+                                                    <span id="payment-button-amount">Filter</span>
+                                               
+                                                </button>
+                                         </li></ul>
+                                </li>
+                                 <li>
+                                    <a href="#">By country</a>
+                                         <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                       <div class="form-group">
+                                                
+                                                   <label for="palabrasclave" class=" form-control-label">Country</label>
+                                                 
+                                             
+                                             <input type="text" id="palabrasclave" class="form-control" placeholder="Country">
+                                        
+                                            </div>
+                                                    <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="filtrarporpalabras()">
+                                              
+                                                    <span id="payment-button-amount">Filter</span>
+                                               
+                                                </button>
+                                             </li>
+                                     </ul>
+                                </li>
+                                
+                                
+                                 <li>
+                                    <a href="#">Property selected</a>
+                                         <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                               <li>
+                                       <div class="form-group">
+                                                
+                                                   <label for="palabrasclave" class=" form-control-label">Select</label>
+                                          
+                                             
+                                             <select name="select" id="property" class="form-control">
+                                                        <option value="0">Select</option>
+                                                        <option value="Numero">Number</option>
+                        <option value="StateorProvince">State or Province</option>
+                    <option value="affectedpopulation">Affected population</option>
+                                                 <option value="Activitydrugtrafficking">Activity drug trafficking</option>
+                                                 <option value="SpecificCommodity">Specific Commodity</option>
+                                                 <option value="Conflictdetailsandactors">Conflict details and actors</option>
+                                                 <option value="Relevantgovernment">Relevant government actors</option>
+                                                 <option value="Relevantprivatesectoractors">Relevant private sector actors</option>
+                                                 <option value="RelevantEJOsactors">Relevant EJOs actors</option>
+                                                 <option value="Supporters">Supporters</option>
+                                                 <option value="Intensityoftheconflict">Intensity of the conflict</option>
+                                                 <option value="Startoftheconflict">Start of the conflict</option>
+                                                 <option value="Groupsaffected">Groups affected</option>
+                                                 <option value="Formsofmobilization">Forms of mobilization</option>
+                                                 <option value="Environmentalimpacts">Environmental impacts</option>
+                                                 <option value="Healthimpacts">Health impacts</option>
+                     <option value="Socioeconomicimpacts">Socioeconomic impacts</option>
+                                                  <option value="StatusofConfirmation">Status of Confirmation</option>
+                                                  <option value="ModeofConnection">Mode of Connection</option>
+                                                  <option value="Traffickinggroups">Trafficking groups</option>
+                                                  <option value="Typeofroute">Type of route</option>
+                                                  <option value="HotSpotrelated">Hot Spot related</option>
+                                                   <option value="Sources">Sources</option>
+                                                   <option value="Quotestoreinforce">Quotes to reinforce</option>
+                                                    </select>
+                                           
+                                               <label for="detail" class=" form-control-label">Detail</label>
+                                                 
+                                             
+                                             <input type="text" id="detail" class="form-control" placeholder="detail">
+                                        
+                                           
+                                            </div>
+                                                    <button id="filtrarpropiedad" class="btn btn-lg btn-info btn-block" onclick="filtrarporpropiedad()">
+                                              
+                                                    <span id="payment-button-amount">Filter</span>
+                                               
+                                                </button>
+                                             </li>
+                                     </ul>
+                                </li>
+                                
+                                
+                                
+                            </ul>
+                        </li>
+                        
+                        
+                           <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                 <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Protected areas</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="nuevazona.html">New protected area</a>
+                                </li>
+                                <li>
+                                    <a href="Listazonas.html">List of protected areas</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                     <li>
+                            <a href="Log.html">
+                                 <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                        
+                     
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+ <header class="footer-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                           
+                       <div class="logo">
+                <p>Copyright © 2019  PEGASUS, FUTURE EARTH, OREGON STATE UNIVERSITY, TEXAS STATE, FUNDACION NEOTROPICA. All rights reserved.</p>       
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+              <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                           
+                            <div class="header-button">
+                             
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="" alt="" id="imgperfil" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" id="nombredeusuario" ></a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="" alt="" id="imgperfil2"/>
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#"></a>
+                                                    </h5>
+                                                    <span class="email" id="emailuser"></span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                               
+                                                <div class="account-dropdown__item">
+                                                    <a href="configuracion.html">
+                                                        <i class="zmdi zmdi-settings"></i>Configuration</a>
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#" onclick="salirdelsistema()">
+                                                    <i class="zmdi zmdi-power"></i>Log Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        <i class="zmdi zmdi-map" ></i>Main map</h3>
+                                    <p id="titulomapaprincipal"></p>
+                                    <div class="filters">
+                                      
+                                    </div>
+                                    <div class="map-wrap m-t-45 m-b-20">
+                                      
+                                        <div id="map"></div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                        </div>
+                        <div class="row" id="mapassecundarios">
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>Panama</h3>
+                                    <div class="map-wrap">
+                                           <div id="mappanama" class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>Costa Rica</h3>
+                                    <div class="map-wrap">
+                                         <div id="mapcr"  class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>Nicaragua</h3>
+                                    <div class="map-wrap">
+                                          <div id="mapnica"  class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>Guatemala</h3>
+                                    <div class="map-wrap">
+                                         <div id="mapguate"  class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>El Salvador</h3>
+                                    <div class="map-wrap">
+                                          <div id="mapsalva"  class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- MAP DATA-->
+                                <div class="map-data m-b-40">
+                                    <h3 class="title-3 m-b-30">
+                                        <i class="zmdi zmdi-map"></i>Honduras</h3>
+                                    <div class="map-wrap">
+                                          <div id="maphonduras"  class="submapa"></div>
+                                    </div>
+                                </div>
+                                <!-- END MAP DATA-->
+                                <!-- END PAGE CONTAINER-->
+                            </div>
+                        </div>
+                        <!--  <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+       
+        
+        
+        
+        
+        
+        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="scrollmodalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title"  id="titulodetalle"></h3>
+						  <div id="mapdetalle"  class="mapadetalle"></div>
+                            <hr>
+						</div>
+						<div class="modal-body">
+                            
+                            <p id= "infopropiedad">Aqui va el detalle en texto</p>
+                            
+					</div>
+						
+					</div>
+				</div>
+			</div>
+			
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <!-- modal large -->
+			<div class="modal fade" id="largeModalphoto" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content" id="fototeca" style="padding:10px;text-align:center;">
+                        <h2 id="nombrehallazgoimgs"></h2>
+                        <hr>
+					<table style="position: relative;left: 50px;"><tbody ><tr id="fila0"></tr><tr id="fila1"></tr><tr id="fila2"></tr><tr id="fila3"></tr></tbody></table>
+                        <hr>
+                        <img width="500px" height="500px" src="" id="imagengrande">
+					</div>
+				</div>
+			</div>
+			<!-- end modal large -->
+        
+        		<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="false">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="smallmodalLabel">Small Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>
+								
+All areas shown are approximate positions, which do not necessarily reflect an exact location of the finding
+							</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+        
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+    <script src="vendor/vector-map/jquery.vmap.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.min.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.sampledata.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.world.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.brazil.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.europe.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.france.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.germany.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.russia.js"></script>
+    <script src="vendor/vector-map/jquery.vmap.usa.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+        <script src="js/blockUI.js"></script>
+<script>
+      // This example requires the Drawing library. Include the libraries=drawing
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=drawing">
+
+     if (JSON.parse(localStorage.getItem("usuariologueado")) == null) {
+            alert("You are not authorized to enter yet");
+            location.href = "/login.html";
+
+        }
+    else
+        {
+            
+            if  (JSON.parse(localStorage.getItem("usuariologueado"))[0].tipousuario =="Visitor")
+              {
+                 $("#menulateral").remove();
+                      $("#menumovil").remove();
+              }
+            
+            
+            document.getElementById("nombredeusuario").innerHTML = JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+             document.getElementById("imgperfil").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+                     document.getElementById("imgperfil2").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+        }
+
+            function CARGARCATEGORIAS()
+{
+    var persona = new Object();
+  
+    $.ajax({
+        url: 'api/categoriatodos',
+        // url: 'http://192.168.1.135//api/Listado',
+        type: 'POST',
+        dataType: 'json',
+        data: persona,
+        success: function (data, textStatus, xhr) {
+           
+              for (var ele in data) {
+                  
+                  var x = document.getElementById("categoriamobile");
+                        var option = document.createElement("option");
+                        option.text =   data[ele].nombre ;
+                        option.value =  data[ele].nombre ;
+                        option.id =  data[ele].nombre ;
+                    //   option.id=
+                        x.add(option);
+                  
+                  
+                    var x = document.getElementById("categoriaall");
+                        var option = document.createElement("option");
+                        option.text =   data[ele].nombre ;
+                        option.value =  data[ele].nombre ;
+                        option.id =  data[ele].nombre ;
+                    //   option.id=
+                        x.add(option);
+                  
+              }
+             
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert(xhr);
+        }
+    });
+
+} 
+    
+   
+    
+    function cargarzonasprotejidas(map)
+    {
+               
+                        
+                          var persona = new Object();
+           
+                persona.autuser="";
+            var tabla;
+            $.ajax({
+                url: 'api/todaslaszonasprotejidas',
+                type: 'POST',
+                dataType: 'json',
+                data: persona,
+                success: function (data, textStatus, xhr) {
+                    if (data.ID == 0) {
+                        alert("Internet error");
+                    } else {
+                         localStorage.setItem("ZONASENMAPA", JSON.stringify(data));
+                        
+                        for (var ele in data) {
+                              var coordenadasentexto = JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].vectordepuntos;
+                                                       if(JSON.parse(coordenadasentexto).length == 1)
+                  {
+                       var myLatlng = new google.maps.LatLng(parseFloat(JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejex), parseFloat( JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejey));
+                       var circle = new google.maps.Circle({
+        fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+        fillOpacity: 0.6,
+        strokeWeight: 0.8,
+        strokeColor: '#ff0000',
+        draggable: false,
+        editable: false,
+        map: map,
+        center: myLatlng,
+        radius: JSON.parse(coordenadasentexto)[0].lng
+    });
+              
+                            
+                      
+                      
+                  }
+                else{
+                       
+                         bermudaTriangle = new google.maps.Polygon({
+  paths: JSON.parse(coordenadasentexto),
+  strokeColor: '#FF0000',
+  strokeOpacity: 0.5,
+  strokeWeight: 0.8,
+  fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+  fillOpacity: 0.35
+});
+                    bermudaTriangle.setMap(map); 
+                   
+           
+                    
+                            
+                    
+                    
+                }
+                            
+                            
+                            
+                        }}}
+                
+            });
+                        
+                        
+                        
+                        
+                    
+    }
+    
+    function cargarzonasprotejidasdesdememoria(map)
+    {
+        if(JSON.parse(localStorage.getItem("ZONASENMAPA")) != null)
+            {
+           for (var ele in JSON.parse(localStorage.getItem("ZONASENMAPA"))) {
+                              var coordenadasentexto = JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].vectordepuntos;
+                                                       if(JSON.parse(coordenadasentexto).length == 1)
+                  {
+                       var myLatlng = new google.maps.LatLng(parseFloat(JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejex), parseFloat( JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejey));
+                       var circle = new google.maps.Circle({
+        fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+        fillOpacity: 0.6,
+        strokeWeight: 0.8,
+        strokeColor: '#ff0000',
+        draggable: false,
+        editable: false,
+        map: map,
+        center: myLatlng,
+        radius: JSON.parse(coordenadasentexto)[0].lng
+    });
+              
+                            
+                      
+                      
+                  }
+                else{
+                       
+                         bermudaTriangle = new google.maps.Polygon({
+  paths: JSON.parse(coordenadasentexto),
+  strokeColor: '#FF0000',
+  strokeOpacity: 0.5,
+  strokeWeight: 0.8,
+  fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+  fillOpacity: 0.35
+});
+                    bermudaTriangle.setMap(map); 
+                   
+           
+                    
+                            
+                    
+                    
+                }
+                            
+                            
+                            
+                        }
+            }
+    }
+    
+    
+    function cargarzonasprotejidasdesdememoriapunteado(map)
+    {
+        if(JSON.parse(localStorage.getItem("ZONASENMAPA")) != null)
+            {
+           for (var ele in JSON.parse(localStorage.getItem("ZONASENMAPA"))) {
+                              var coordenadasentexto = JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].vectordepuntos;
+                                                       if(JSON.parse(coordenadasentexto).length == 1)
+                  {
+                       var myLatlng = new google.maps.LatLng(parseFloat(JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejex), parseFloat( JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejey));
+                       var circle = new google.maps.Circle({
+        fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+        fillOpacity: 0.6,
+        strokeWeight: 0.8,
+        strokeColor: '#ff0000',
+        draggable: false,
+        editable: false,
+        map: map,
+        center: myLatlng,
+        radius: JSON.parse(coordenadasentexto)[0].lng
+    });
+              
+                            
+                      
+                      
+                  }
+                else{
+                        var lineSymbol = {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillOpacity: 1,
+    scale: 2
+  };
+                    var polygon = new google.maps.Polygon({
+    strokeOpacity: 0,
+    strokeWeight: 0,
+    fillColor: '#00FF00',
+    fillOpacity: .6,
+     paths: JSON.parse(coordenadasentexto),
+    map: map
+  });
+                    
+                         bermudaTriangle = new google.maps.Polyline({
+    strokeColor: '#000000',
+    strokeOpacity: 0,
+    fillOpacity: 0,
+    icons: [{
+      icon: lineSymbol,
+      offset: '0',
+      repeat: '10px'
+    }],
+  paths: JSON.parse(coordenadasentexto),
+    map: map
+  });
+                    bermudaTriangle.setMap(map); 
+                   
+           
+                    
+                            
+                    
+                    
+                }
+                            
+                            
+                            
+                        }
+            }
+    }
+    
+    
+           function cargatodaspropiedades()
+        {
+            
+            var persona = new Object();
+           
+persona.autuser=JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + ' ' + JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+            var tabla;
+            $.ajax({
+                url: 'api/conflictotodos',
+                type: 'POST',
+                dataType: 'json',
+                data: persona,
+                success: function (data, textStatus, xhr) {
+                    if (data.ID == 0) {
+                        alert("Internet error");
+                    } else {
+                         localStorage.setItem("terrenosenmapa", JSON.stringify(data));
+                        var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                        
+                        cargarzonasprotejidas(map);
+                     
+                        
+                        
+                        
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                            var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >5)
+                                {
+                                    previo="";
+                                    for(i=0;i<5;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                            var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+
+                    
+                    
+                    
+                    
+                  //  Panama
+                      var latLng = new google.maps.LatLng(8.924503211533171, -80.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('mappanama'), {
+                            zoom: 6.5,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                        cargarzonasprotejidasdesdememoria(map);
+                        
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                    var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                   var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    
+                   //costa rica 
+                    
+                      var latLng = new google.maps.LatLng(9.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('mapcr'), {
+                            zoom: 6.5,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                         cargarzonasprotejidasdesdememoria(map);
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                   var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                       var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    
+                    
+                    //nicaragua
+                    
+                    
+                    
+                    
+                      var latLng = new google.maps.LatLng(12.924503211533171, -85.37450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('mapnica'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                         cargarzonasprotejidasdesdememoria(map);
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                   var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                      var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>'; 
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    
+                    
+                    
+                    
+                    //guatemala
+                    
+                    
+                    
+                    
+                      var latLng = new google.maps.LatLng(15.824503211533171, -90.37450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('mapguate'), {
+                            zoom: 6.5,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                         cargarzonasprotejidasdesdememoria(map);
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                   var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                       var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    // salvador
+                    
+                    
+                      var latLng = new google.maps.LatLng(13.824503211533171, -88.37450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('mapsalva'), {
+                            zoom: 7.5,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                         cargarzonasprotejidasdesdememoria(map);
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                    var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                       var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    
+                              
+                    // honduras
+                    
+                    
+                      var latLng = new google.maps.LatLng(14.824503211533171, -86.7450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('maphonduras'), {
+                            zoom: 6.8,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                         cargarzonasprotejidasdesdememoria(map);
+                        for (var ele in data) {
+
+                             var myLatlng = new google.maps.LatLng(data[ele].ejex, data[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data[ele]._id
+            });
+                                   var id=data[ele]._id;
+                           var res = data[ele].Conflictdetailsandactors.split(" ");
+                            var previo = data[ele].Conflictdetailsandactors;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                    }
+                    
+                    
+                    
+                    }
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    CARGARCATEGORIAS();
+                    
+                    
+                    
+                    
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert(xhr);
+                }
+            });
+
+        }
+function linkify(text) {
+    try {
+    var urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(urlRegex, function(url) {
+        return '<a href="' + url + '">' + url + '</a>';
+    });
+    }
+    catch(error) {
+  console.error(error);
+  // expected output: SyntaxError: unterminated string literal
+  // Note - error messages will vary depending on browser
+}
+}
+    function cargadatos(id,nombre)
+    {
+ //document.getElementById('titulodetalle').innerHTML=  decodeURIComponent(nombre);
+           for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+               if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id == id)
+                   {
+                        
+                       
+                       
+                       
+                       var map = new google.maps.Map(document.getElementById('mapdetalle'), {
+          center: {lat: parseFloat(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex), lng: parseFloat( JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey)},
+          zoom: 10
+        });
+ cargarzonasprotejidasdesdememoriapunteado(map);
+         var drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: google.maps.drawing.OverlayType.MARKER,
+          drawingControl: false,
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: []
+          },
+          markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+          circleOptions: {
+            fillColor: '#ffff00',
+            fillOpacity: 1,
+            strokeWeight: 5,
+            clickable: false,
+            editable: true,
+            zIndex: 1
+          }
+        });
+                       
+                
+                       
+                       var coordenadasentexto = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].vectordepuntosdezona;
+                       console.log(coordenadasentexto)
+                       
+                           if(JSON.parse(coordenadasentexto).length == 1)
+                  {
+                       var myLatlng = new google.maps.LatLng(parseFloat(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex), parseFloat( JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey));
+                       var circle = new google.maps.Circle({
+        fillColor: '#ffffff',
+        fillOpacity: 0.6,
+        strokeWeight: 0.8,
+        strokeColor: '#ff0000',
+        draggable: false,
+        editable: false,
+        map: map,
+        center: myLatlng,
+        radius: JSON.parse(coordenadasentexto)[0].lng
+    });
+                      
+                  }
+                else{
+                       
+                        var bermudaTriangle = new google.maps.Polygon({
+  paths: JSON.parse(coordenadasentexto),
+  strokeColor: '#FF0000',
+  strokeOpacity: 0.5,
+  strokeWeight: 0.8,
+  fillColor: '#FF0000',
+  fillOpacity: 0.35
+});
+                        bermudaTriangle.setMap(map);
+                }
+               drawingManager.setMap(map);          
+                       
+                       
+                       
+                    
+                       
+                       
+                       
+                         var fuentesconenlaces = linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Sources);
+ document.getElementById("infopropiedad").innerHTML = "<h4>Basic Data</h4><table><tr><td> <h1>" + JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Nameofconflict +  "</h1></td></tr><tr><td colspan=2><div style='height:5%;font-family: \"Abhaya Libre\"; text-align: center;font-size: small;padding: 20px;margin-bottom: 30px;' id='fotograma'></div></td></tr></table><hr/>";
+                       
+
+                        document.getElementById("infopropiedad").innerHTML += "<table style='text-align:left;'><tr><td><strong> Country: </strong></td></tr><tr><td> " + JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Country +  "</td></tr><tr><td><strong> State or Province: </strong></td></tr><tr><td>" +JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].StateorProvince + "</td></tr><tr><td> <strong>Affected population:  </strong></td></tr><tr><td><h3>" + JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].affectedpopulation + "</h3></td></tr></table>";
+                    
+                       document.getElementById("infopropiedad").innerHTML += "<h4>Source of Conflict</h4><table style='text-align:left;'><tr><td><strong>Activity affected or activity used for/related to the drug trafficking (Type of conflict 1st level) </strong></td></tr><tr><td>"+ JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Activitydrugtrafficking +"</td></tr><tr><td><strong>Specific Commodity: </strong></td></tr><tr><td>"+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].SpecificCommodity +"</td></tr><tr><td><h4>Conflict details and actors </h4><strong> Conflict details and actors : </strong> </td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Conflictdetailsandactors) +"</td></tr><tr><td> <strong>Relevant government Actors: </strong> </td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].RelevantgovernmentActors) +"</td></tr><tr><td >   <strong>Supporters </strong>: </td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Supporters) +"</td></tr><tr><td><h4>The Conflict and Mobilization </h4> <strong>Intensity of the conflict : </strong></td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Intensityoftheconflict) +"</td></tr><tr><td > <strong>Start of the conflict : </strong> </td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Startoftheconflict) +"</td></tr><tr><td><strong>Groups affected: </strong> </td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Groupsaffected) +"</td></tr><tr><td> <strong>Forms of mobilization: </strong> </td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Formsofmobilization) +"</td></tr><tr><td> <strong>Environmental impacts: </strong> </td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Environmentalimpacts) +"</td></tr><tr><td > <strong>Health impacts : </strong> </td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Healthimpacts) +"</td></tr><tr><td> <strong>Socioeconomic impacts :  </strong></td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Socioeconomicimpacts) +"</td></tr><tr><td><h4>Drug Trade Link with the Conflict</h4> <strong>Status of Confirmation:  </strong></td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].StatusofConfirmation) +"</td></tr><tr><td></td></tr><tr><td><strong> Mode of Connection : </strong></td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ModeofConnection) +"</td></tr><tr><td> <strong>Trafficking groups :  </strong></td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Traffickinggroups) +"</td></tr><tr><td> <strong>Type of route : </strong></td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Typeofroute) +"</td></tr><tr><td><hr></td></tr><tr><td > <strong>Hot Spot related :</strong> </td></tr><tr><td>"+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].HotSpotrelated +"</td></tr><tr><td> <strong>Sources:</strong> </td></tr><tr><td>"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Sources) +"</td></tr><tr><td> <strong>Quotes to reinforce : </strong></td></tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Quotestoreinforce) +"</td></tr><tr><td> <strong>Loss of value in ecosystem services by country : </strong></td></tr><tr><tr><td >"+linkify(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]. Lossofvalueinecosystemservicesbycountry) +"</td></tr></table>";
+                       
+                       
+                       
+                       
+                       
+                       
+                   }
+               
+           }
+    }
+    
+    function cargaimg(uno,dos)
+    {
+          $('#fototeca').block({
+                            message: '<h4>Charging...</h4><img src="/imgs/carga.gif" style="width:25%;height:25%;"/>',
+
+
+                        });
+        
+        document.getElementById("nombrehallazgoimgs").innerHTML = decodeURIComponent(dos);
+         var persona = new Object();
+                 
+                        persona.idconflicto =uno;
+                         persona.autuser=JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + ' ' + JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+                        $.ajax({
+                            //url: 'http://bodas.sistemcr.com/api/api/TRIVIA',
+                            url: 'api/fotoxconflicto',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: persona,
+                            success: function (data, textStatus, xhr) {
+                              
+    var contador = 0;
+var fila =0
+ document.getElementById("fila0").innerHTML ="";
+               document.getElementById("fila1").innerHTML ="";
+               document.getElementById("fila2").innerHTML ="";
+               document.getElementById("fila3").innerHTML ="";
+                                  document.getElementById("imagengrande").src = "";
+                                if(data.length == 0)
+                                    {
+                                        document.getElementById("fila0").innerHTML ="No images attached";
+                                    }
+  for (var ele in data) {
+                        if (contador == 8) {
+                            fila = fila + 1;
+                          
+                        }
+                        contador = contador + 1;
+                      
+                                document.getElementById("fila"+ fila).innerHTML += '<td><img id=' + data[ele]._id + ' src=' + data[ele].base64 + ' style ="cursor:pointer;width: 100px; height: 100px; border-radius:10px;" class="paraagrandar" /></td>';
+
+                 
+                    }
+                             $(".paraagrandar").click(function(){
+
+                                 document.getElementById("imagengrande").src = this.src;
+});   
+                                    $('#fototeca').unblock();
+                                
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                alert(xhr);
+                            }
+                        });
+    }
+    
+    
+    
+    
+    //FILTRADOS
+    
+    
+ 
+    
+    
+    
+    function filtrarporcategoria()
+    {
+        document.getElementById("opcionquitarfiltros").style.visibility="visible";
+   document.getElementById("titulomapaprincipal").innerHTML = " filtrado por categoria";
+         $("#mapassecundarios").remove();
+
+
+        document.getElementById("map").innerHTML= "";
+           var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                
+         for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+               if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].categoria == document.getElementById("categoriaall").value)
+                   {
+           var myLatlng = new google.maps.LatLng(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex, JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id
+            });
+                            var id=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id;
+                           var res = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles.split(" ");
+                            var previo = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                            var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].categoria +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre+'")>Detalle</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre +'\')\">Ver Imágenes</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                   
+                   }
+         }
+        
+    }
+    
+    function filtrarporpalabras()
+    {
+         document.getElementById("opcionquitarfiltros").style.visibility="visible";
+          document.getElementById("titulomapaprincipal").innerHTML = "Filtered by country";
+         $("#mapassecundarios").remove();
+         document.getElementById("map").innerHTML= "";
+           var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                 var comodin =  document.getElementById("palabrasclave").value.toUpperCase() ;
+         for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+            
+           //  var comodin2 = '/^.*' + document.getElementById("palabrasclave").value + '$/';
+            console.log(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Country.toUpperCase());
+              console.log(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Country.toUpperCase().match(comodin));
+             if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Country.toUpperCase().match(comodin) != null) 
+              // if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].palabrasclave == document.getElementById("palabrasclave").value)
+                   {
+           var myLatlng = new google.maps.LatLng(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex, JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id
+            });
+                            var id=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id;
+                           var res = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles.split(" ");
+                            var previo = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                           var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].categoria +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre+'")>Detalle</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].nombre +'\')\">Ver Imágenes</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                   
+                   }
+         }
+        
+    }
+    
+    function filtrarpordireccion()
+    {
+         document.getElementById("opcionquitarfiltros").style.visibility="visible";
+          document.getElementById("titulomapaprincipal").innerHTML = "Filtered by name of conflict";
+          $("#mapassecundarios").remove();
+         document.getElementById("map").innerHTML= "";
+           var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                 var comodin =  document.getElementById("direccion").value.toUpperCase() ;
+         for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+
+             if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Nameofconflict.toUpperCase().match(comodin) != null) 
+              // if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].palabrasclave == document.getElementById("palabrasclave").value)
+                   {
+           var myLatlng = new google.maps.LatLng(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex, JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id
+            });
+                            var id=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id;
+                           var res = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles.split(" ");
+                            var previo = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                                 var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>'; 
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                   
+                   }
+         }
+        
+    }
+    
+    function filtrarporfecha()
+    {
+        var fechauno = new Date(document.getElementById("fechauno").value);
+        var fechados = new Date(document.getElementById("fechados").value);
+        document.getElementById("opcionquitarfiltros").style.visibility="visible";
+          document.getElementById("titulomapaprincipal").innerHTML = "Filtered by date";
+          $("#mapassecundarios").remove();
+         document.getElementById("map").innerHTML= "";
+           var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+                 var comodin =  document.getElementById("direccion").value ;
+         for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+            
+         var fechah = new Date(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].fecha);
+             console.log('fecha h '+fechah);
+             console.log('fecha menor '+fechauno);
+             console.log('fecha mayor '+fechados);
+             if (fechah >= fechauno && fechah <= fechados) 
+              // if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].palabrasclave == document.getElementById("palabrasclave").value)
+                   {
+           var myLatlng = new google.maps.LatLng(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex, JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id
+            });
+                            var id=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id;
+                           var res = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles.split(" ");
+                            var previo = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                          var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>';
+                    
+                    
+                    
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                   
+                   }
+         }
+    }
+    
+    function filtrarporpropiedad()
+    {
+         document.getElementById("opcionquitarfiltros").style.visibility="visible";
+          document.getElementById("titulomapaprincipal").innerHTML = "Filtered by property " + document.getElementById("detail").text;
+          $("#mapassecundarios").remove();
+         document.getElementById("map").innerHTML= "";
+           var latLng = new google.maps.LatLng(12.924503211533171, -84.07450156784057);
+                    var latlngbounds = new google.maps.LatLngBounds();
+                         var infoWindow = new google.maps.InfoWindow();
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 6,
+                            center: latLng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        });
+        
+                 var comodin =  document.getElementById("detail").value.toUpperCase() ;
+         for (var ele in JSON.parse(localStorage.getItem("terrenosenmapa"))) {
+             var resultado = null;
+switch(document.getElementById("property").value)
+    {
+        case "Numero":
+{
+    resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Numero.toUpperCase().match(comodin);
+                break;
+            }
+        case "StateorProvince":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].StateorProvince.toUpperCase().match(comodin);
+                break;
+            }
+        case "affectedpopulation":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].affectedpopulation.toUpperCase().match(comodin);
+                break;
+            }
+        case "Activitydrugtrafficking":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Activitydrugtrafficking.toUpperCase().match(comodin);
+                break;
+            }
+        case "SpecificCommodity":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].SpecificCommodity.toUpperCase().match(comodin);
+                break;
+            }
+        case "Conflictdetailsandactors":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Conflictdetailsandactors.toUpperCase().match(comodin);
+                break;
+            }
+        case "Relevantgovernment":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Relevantgovernment.toUpperCase().match(comodin);
+                break;
+            }
+        case "Actors":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Actors.toUpperCase().match(comodin);
+                break;
+            }
+        case "Relevantprivatesectoractors":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Relevantprivatesectoractors.toUpperCase().match(comodin);
+                break;
+            }
+        case "RelevantEJOsactors":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].RelevantEJOsactors.toUpperCase().match(comodin);
+                break;
+            }
+        case "Supporters" :
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Supporters.toUpperCase().match(comodin);
+                break;
+            }
+        case "Intensityoftheconflict":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Intensityoftheconflict.toUpperCase().match(comodin);
+                break;
+            }
+        case "Startoftheconflict":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Startoftheconflict.toUpperCase().match(comodin);
+                break;
+            }
+        case "Groupsaffected":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Groupsaffected.toUpperCase().match(comodin);
+                break;
+            }
+        case "Formsofmobilization":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Formsofmobilization.toUpperCase().match(comodin);
+                break;
+            }
+        case "Environmentalimpacts":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Environmentalimpacts.toUpperCase().match(comodin);
+                break;
+            }
+        case "Healthimpacts":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Healthimpacts.toUpperCase().match(comodin);
+                break;
+            }
+        case "Socioeconomicimpacts":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Socioeconomicimpacts.toUpperCase().match(comodin);
+                break;
+            }
+        case "StatusofConfirmation":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].StatusofConfirmation.toUpperCase().match(comodin);
+                break;
+            }
+        case "ModeofConnection":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ModeofConnection.toUpperCase().match(comodin);
+                break;
+            }
+        case "Traffickinggroups":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Traffickinggroups.toUpperCase().match(comodin);
+                break;
+            }
+        case "Typeofroute":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Typeofroute.toUpperCase().match(comodin);
+                break;
+            }
+        case "HotSpotrelated" :
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].HotSpotrelated.toUpperCase().match(comodin);
+                break;
+            }
+        case "Sources":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Sources.toUpperCase().match(comodin);
+                break;
+            }
+        case "Quotestoreinforce":
+            {
+                resultado=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].Quotestoreinforce.toUpperCase().match(comodin);
+                break;
+            }
+        default:
+    }
+             if (resultado != null) 
+              // if (JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].palabrasclave == document.getElementById("palabrasclave").value)
+                   {
+           var myLatlng = new google.maps.LatLng(JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejex, JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].ejey);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id
+            });
+                            var id=JSON.parse(localStorage.getItem("terrenosenmapa"))[ele]._id;
+                           var res = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles.split(" ");
+                            var previo = JSON.parse(localStorage.getItem("terrenosenmapa"))[ele].detalles;
+                            if(res.length >10)
+                                {
+                                    previo="";
+                                    for(i=0;i<10;i++)
+                                        {
+                                        previo=previo+ res[i]+ " ";
+                                    }
+                                    previo=previo+"...";
+                                }
+                                 var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading" style="color:black;font-size:medium;">'+data[ele].Nameofconflict +'</h1><hr>'+
+      '<div id="bodyContent" style="color:black;font-size:small;">'+
+      '<p><b>'+data[ele].SpecificCommodity +'</b><br>,'+previo  +
+      '<br><table><tr><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModal" onclick=cargadatos("'+id+'","'+ encodeURIComponent(data[ele].Nameofconflict)+'")>Detail</button></td><td><button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#largeModalphoto" onclick=\"cargaimg(\''+id+'\',\''+ encodeURIComponent(data[ele].Nameofconflict) +'\')\">See images</button></td></tr><tr><td id="espacioimagenprevia"></td></tr></table></div>'+
+      '</div>'; 
+                            
+                            
+            (function (marker,id) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    cargadatos(id);
+                });
+            })(marker, id);
+                             (function (marker,contentString) {
+                google.maps.event.addListener(marker, "mouseover", function (e) {
+                    
+                   
+                    
+                    infoWindow.setContent(contentString);
+                    infoWindow.open(map, marker);
+                });
+                                 
+                                 
+                                 
+            })(marker, contentString);
+                           
+            latlngbounds.extend(marker.position);
+                            
+                            
+                             google.maps.event.addListener(marker, "mouseout", function (e) {
+                    infowindow.close();
+                });
+                            
+                            
+                            
+                            
+                       
+
+
+                   
+                   }
+         }
+    }
+    
+    function quitarfiltros()
+    {
+        location.href="map.html";
+    }
+    
+     function salirdelsistema()
+    {
+        localStorage.setItem("usuariologueado",null);
+      //  localstorage.setItem("usuariologueado",null);
+        location.href = "login.html";
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXvodJ1BTbGIVjYsnBe7cEXVUPgnM5Nus&libraries=drawing&callback=initMap"
+         async defer></script>
+</body>
+
+</html>
+<!-- end document-->

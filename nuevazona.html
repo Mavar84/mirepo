@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Protected area</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+<style>
+     #map {
+        height: 550px;
+         width: 100%;
+      }
+    </style>
+</head>
+
+<body class="animsition" onload="CARGARCATEGORIAS()">
+    <div class="page-wrapper">
+       <!-- HEADER MOBILE-->
+          <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                           PEGASUS
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                      <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Public map</a>
+                        </li>
+                  <li>
+                            <a href="Log.html">
+                                    <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+       <!-- END HEADER MOBILE-->
+
+       <!-- MENU SIDEBAR-->
+       <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                PEGASUS
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                       
+                      
+                    <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-user"></i></i>User</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Usuario.html">New User</a>
+                                </li>
+                                <li>
+                                    <a href="Listausuarios.html">List of users</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        
+                        
+                           
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-angle-right"></i>Category</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Categoria.html">New category</a>
+                                </li>
+                                <li>
+                                    <a href="Listacategorias.html">List of category</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                      <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="far fa-hand-point-right"></i>Findings</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="Hallazgo.html">New finding</a>
+                                </li>
+                                <li>
+                                    <a href="Listahallazgos.html">List of findings</a>
+                                </li>
+                              
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="configuracion.html">
+                               <i class="fas fa-cogs"></i>Configuration</a>
+                        </li>
+                         <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-pie"></i>Figures</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Public map</a>
+                        </li>
+                  <li>
+                            <a href="Log.html">
+                                   <i class="far fa-file-alt"></i>Log</a>
+                        </li>
+                     </ul>
+                </nav>
+            </div>
+        </aside>
+         <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+             <!-- HEADER DESKTOP-->
+         <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                           
+                            <div class="header-button">
+                             
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="" alt="" id="imgperfil" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" id="nombredeusuario" ></a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="" alt="" id="imgperfil2"/>
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#"></a>
+                                                    </h5>
+                                                    <span class="email" id="emailuser"></span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                               
+                                                <div class="account-dropdown__item">
+                                                    <a href="configuracion.html">
+                                                        <i class="zmdi zmdi-settings"></i>Configuration</a>
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#" onclick="salirdelsistema()">
+                                                    <i class="zmdi zmdi-power"></i>Log Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+               <!-- END HEADER DESKTOP-->
+
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                          
+                        <div class="row">
+                            <div class="col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h4>
+Select the area of the protected area</h4>
+									</div>
+									<div class="card-body">
+										 <div id="map"></div>
+									</div>
+								</div>
+							</div>
+                            <div class="col-lg-6">
+                                <div class="card" id="cajausuario">
+                                    <div class="card-header">
+New Protected area</div>
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">
+Fill in all the data</h3>
+                                        </div>
+                                        <hr>
+                                         <H4>Basic Data</H4>
+                     
+                                            <div class="form-group">
+                                                
+                                                   <label for="Numero" class=" form-control-label">Number</label>
+                                                   <input type="text" id="Numero" class="form-control" placeholder="Number">
+                                            </div>
+                                           
+                                           
+                                              <div class="form-group">
+                                            <label for="Nameofconflict" class=" form-control-label">Description</label>
+                                          
+   <input type="text" id="description" class="form-control" placeholder="Description">
+                        
+                                        </div>
+                                        
+                                        
+                                          <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="estadosistema" class=" form-control-label">
+State in the system</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="estadosistema" class="form-control">
+                                                        <option value="0">Select</option>
+                                                        <option value="Inactive">
+Inactive</option>
+                        <option value="Active">Active</option>
+                    
+                    
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    
+                                            <div>
+                                                <button id="guardar" class="btn btn-lg btn-info btn-block" onclick="guardahallazgo()">
+                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                    <span id="payment-button-amount">Save data</span>
+                                               
+                                                </button>
+                                                
+                                              
+                                                
+                                            </div>
+                                
+                                    </div>
+                                </div>
+                            </div>
+                            	
+                            
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+       <script src="js/blockUI.js"></script>
+<script type="text/javascript">
+    var ultimacaparegistrada = null;
+ if (JSON.parse(localStorage.getItem("usuariologueado")) == null) {
+            alert("You are not authorized to enter yet");
+            location.href = "/login.html";
+
+        }
+    else
+        {
+            if  (JSON.parse(localStorage.getItem("usuariologueado"))[0].tipousuario =="Visitor")
+              {
+                  alert("You do not have permission to enter this option");
+                  window.history.back();
+              }
+            document.getElementById("nombredeusuario").innerHTML = JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+             document.getElementById("imgperfil").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+                     document.getElementById("imgperfil2").src=JSON.parse(localStorage.getItem("usuariologueado"))[0].foto;
+        }
+   var poligonio = "";
+    var ejex = "";
+    var ejey="";
+    
+    
+        
+    function cargarzonasprotejidas(map)
+    {
+               
+                        
+                          var persona = new Object();
+           
+                persona.autuser="";
+            var tabla;
+            $.ajax({
+                url: 'api/todaslaszonasprotejidas',
+                type: 'POST',
+                dataType: 'json',
+                data: persona,
+                success: function (data, textStatus, xhr) {
+                    if (data.ID == 0) {
+                        alert("Internet error");
+                    } else {
+                         localStorage.setItem("ZONASENMAPA", JSON.stringify(data));
+                        
+                        for (var ele in data) {
+                              var coordenadasentexto = JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].vectordepuntos;
+                                                       if(JSON.parse(coordenadasentexto).length == 1)
+                  {
+                       var myLatlng = new google.maps.LatLng(parseFloat(JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejex), parseFloat( JSON.parse(localStorage.getItem("ZONASENMAPA"))[ele].ejey));
+                       var circle = new google.maps.Circle({
+        fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+        fillOpacity: 0.6,
+        strokeWeight: 0.8,
+        strokeColor: '#ff0000',
+        draggable: false,
+        editable: false,
+        map: map,
+        center: myLatlng,
+        radius: JSON.parse(coordenadasentexto)[0].lng
+    });
+              
+                            
+                      
+                      
+                  }
+                else{
+                       
+                         bermudaTriangle = new google.maps.Polygon({
+  paths: JSON.parse(coordenadasentexto),
+  strokeColor: '#FF0000',
+  strokeOpacity: 0.5,
+  strokeWeight: 0.8,
+  fillColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16),
+  fillOpacity: 0.35
+});
+                    bermudaTriangle.setMap(map); 
+                   
+           
+                    
+                            
+                    
+                    
+                }
+                            
+                            
+                            
+                        }}}
+                
+            });
+                        
+                        
+                        
+                        
+                    
+    }
+ 
+   
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 12.924503211533171, lng: -84.07450156784057},
+          zoom: 5
+        });
+cargarzonasprotejidas(map);
+        var drawingManager = new google.maps.drawing.DrawingManager({
+          drawingMode: google.maps.drawing.OverlayType.MARKER,
+          drawingControl: true,
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: ['polygon', google.maps.drawing.OverlayType.CIRCLE]
+          },
+          markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+          circleOptions: {
+            fillColor: '#ffff00',
+            fillOpacity: 0.2,
+            strokeWeight: 2,
+            clickable: false,
+            editable: true,
+            zIndex: 1
+          }
+        });
+     
+        drawingManager.setMap(map);
+          google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
+              if(ultimacaparegistrada != null)
+                  {
+              ultimacaparegistrada.setMap(null);}
+              ultimacaparegistrada= polygon;
+    var coordinates = (polygon.getPath().getArray());
+               localStorage.setItem("poligonio",JSON.stringify(coordinates));
+               poligonio=JSON.stringify(coordinates)
+               console.log(polygon.getPath().getArray());
+    console.log(coordinates);
+           console.log(poligonio);      
+               for (var i = 0; i < polygon.getPath().getLength(); i++) {
+                   var res = polygon.getPath().getAt(i).toUrlValue(6).split(",");
+       console.log(res[0],res[1]);
+                   ejex=res[0];
+                  ejey=res[1];
+    }
+});
+           
+           
+           
+          google.maps.event.addListener(drawingManager, 'circlecomplete', function (event) {
+               if(ultimacaparegistrada != null)
+                  {
+              ultimacaparegistrada.setMap(null);}
+ ultimacaparegistrada= event;
+        // Get circle center and radius
+        var center = event.getCenter().lat();
+        var radius = event.getRadius();
+
+ poligonio= '[{"lat":0,"lng":'+radius+'}]';
+              ejex=event.getCenter().lat();
+                  ejey=event.getCenter().lng();  
+              
+console.log(center);
+   console.log(radius);           
+    });
+           
+           
+           
+           
+           
+      }
+
+    
+    
+    
+      function guardahallazgo()
+         {
+
+ 
+                 $('#cajausuario').block({
+                            message: '<h4>Charging...</h4><img src="/imgs/carga.gif" style="width:25%;height:25%;"/>',
+
+
+                        });
+    var persona = new Object();
+  var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+var today = dd + '/' + mm + '/' + yyyy;
+persona.vectordepuntos=poligonio;
+   
+    persona.ejex= ejex;
+    persona.ejey= ejey;
+    persona.usuario= JSON.parse(localStorage.getItem("usuariologueado"))[0].nombre + " "+ JSON.parse(localStorage.getItem("usuariologueado"))[0].apellido;
+    persona.estadoensistema=document.getElementById("estadosistema").value;       
+ persona.Numero=$('#Numero').val();
+ persona.descripcion=$('#description').val();
+      $.ajax({
+        url: 'api/guardazonasprotejidas',
+        // url: 'http://192.168.1.135//api/Listado',
+        type: 'POST',
+        dataType: 'json',
+        data: persona,
+        success: function (data, textStatus, xhr) {
+              
+              $('#cajausuario').unblock();
+                                 alert("Protected area entered correctly");
+            
+              
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            alert(xhr);
+        }
+    });
+
+}
+    
+     function salirdelsistema()
+    {
+        localStorage.setItem("usuariologueado",null);
+      //  localstorage.setItem("usuariologueado",null);
+        location.href = "login.html";
+    }
+    </script>
+    
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXvodJ1BTbGIVjYsnBe7cEXVUPgnM5Nus&libraries=drawing&callback=initMap" async defer></script>
+</body>
+
+</html>
+<!-- end document-->
